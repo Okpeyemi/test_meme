@@ -5,6 +5,7 @@ const textColorInput = document.querySelector("#textColorInput");
 const textBorderColorInput = document.querySelector("#textBorderColorInput");
 const canvas = document.querySelector("#meme");
 const downloadButton = document.querySelector("#downloadButton");
+const but = document.querySelector(".but");
 
 let image;
 
@@ -50,7 +51,7 @@ bottomTextInput.addEventListener("input", () => {
 });
 
 downloadButton.addEventListener("click", () => {
-  const dataUrl = canvas.toDataURL("image/jpeg");
+  const dataUrl = canvas.toDataURL();
   const a = document.createElement("a");
   a.href = dataUrl;
   a.download = "meme.jpg";
@@ -67,6 +68,8 @@ function updateMemeCanvas(
   textColor,
   textBorderColor
 ) {
+  canvas.style.display = "block";
+  but.style.display = "block";
   const ctx = canvas.getContext("2d");
   const width = image.width;
   const height = image.height;
